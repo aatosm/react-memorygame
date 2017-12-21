@@ -21,6 +21,7 @@ class GameBoard extends Component {
     this.changeId = this.changeId.bind(this);
     this.resetGame = this.resetGame.bind(this);
     this.initCards = this.initCards.bind(this);
+    this.shuffle = this.shuffle.bind(this);
   }
 
   addMatch(){
@@ -34,9 +35,27 @@ class GameBoard extends Component {
     });
   }
 
+
+  // Fisher-Yates (Knuth) Shuffle algorithm
+  shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+
+
   // Hard coded, will fix later
   initCards(){
-    return [
+    let arr = [
       {id: 0, value: 1, flipped: false},
       {id: 1, value: 1, flipped: false},
       {id: 2, value: 2, flipped: false},
@@ -54,6 +73,7 @@ class GameBoard extends Component {
       {id: 14, value: 8, flipped: false},
       {id: 15, value: 8, flipped: false}
     ];
+    return this.shuffle(arr);
   }
 
   resetGame(){
