@@ -4,10 +4,10 @@ class Card extends Component {
 
   constructor(props){
     super(props);
-    this.test = this.test.bind(this)
+    this.test = this.handleClick.bind(this)
   }
 
-  test(e){
+  handleClick(e){
     this.props.change(this.props.card.id);
   }
 
@@ -33,7 +33,7 @@ class Card extends Component {
 
     if(this.props.card.flipped){
       return(
-      <div style={cardStyleA} onClick={this.test}>
+      <div style={cardStyleA} onClick={this.handleClick}>
         {this.props.card.value}
       </div>);
     } else {

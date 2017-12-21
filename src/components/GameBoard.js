@@ -76,22 +76,33 @@ class GameBoard extends Component {
     let cards = this.state.cards;
     let index = this.getIndex(id);
 
+    // Only accect click if card is not flipped
     if(cards[index].flipped === false){
+
+      // If first click of current "turn"
       if(this.state.currentValue === null){
         this.changeCurrentValue(cards[index].value);
         this.changeId(id);
         this.showCard(index);
       }
+      // Second click of current "turn"
       else {
+
+        // Got right
         if(this.state.currentValue === cards[index].value){
           this.changeCurrentValue(null);
           this.showCard(index);
           this.addMatch();
         }
+
+        // Got wrong
         else {
-          this.hideCard(index);
-          this.hideCard(this.getIndex(this.state.currentId));
-          this.changeCurrentValue(null);
+          this.showCard(index);
+          setTimeout(() => {
+            this.hideCard(index);
+            this.hideCard(this.getIndex(this.state.currentId));
+            this.changeCurrentValue(null);
+          }, 1000);
         }
       }
     }
