@@ -10,14 +10,7 @@ class GameBoard extends Component {
       currentId: null,
       dimension: 3,
       matches: 0,
-      cards: [
-        {id: 0, value: 1, flipped: false},
-        {id: 1, value: 1, flipped: false},
-        {id: 2, value: 2, flipped: false},
-        {id: 3, value: 2, flipped: false},
-        {id: 4, value: 3, flipped: false},
-        {id: 5, value: 3, flipped: false}
-      ]
+      cards: this.initCards()
     };
     this.change = this.change.bind(this);
     this.changeCurrentValue = this.changeCurrentValue.bind(this);
@@ -26,12 +19,50 @@ class GameBoard extends Component {
     this.hideCard = this.hideCard.bind(this);
     this.getIndex = this.getIndex.bind(this);
     this.changeId = this.changeId.bind(this);
+    this.resetGame = this.resetGame.bind(this);
+    this.initCards = this.initCards.bind(this);
   }
 
   addMatch(){
     let matchCount = this.state.matches+1;
     this.setState({
       matches: matchCount
+    }, function(){
+      if(this.state.matches == this.state.cards.length/2){
+        console.log("win");
+      }
+    });
+  }
+
+  // Hard coded, will fix later
+  initCards(){
+    return [
+      {id: 0, value: 1, flipped: false},
+      {id: 1, value: 1, flipped: false},
+      {id: 2, value: 2, flipped: false},
+      {id: 3, value: 2, flipped: false},
+      {id: 4, value: 3, flipped: false},
+      {id: 5, value: 3, flipped: false},
+      {id: 6, value: 4, flipped: false},
+      {id: 7, value: 4, flipped: false},
+      {id: 8, value: 5, flipped: false},
+      {id: 9, value: 5, flipped: false},
+      {id: 10, value: 6, flipped: false},
+      {id: 11, value: 6, flipped: false},
+      {id: 12, value: 7, flipped: false},
+      {id: 13, value: 7, flipped: false},
+      {id: 14, value: 8, flipped: false},
+      {id: 15, value: 8, flipped: false}
+    ];
+  }
+
+  resetGame(){
+    this.setState({
+      currentValue: null,
+      currentId: null,
+      dimension: 3,
+      matches: 0,
+      cards: this.initCards()
     });
   }
 
@@ -103,12 +134,16 @@ class GameBoard extends Component {
             this.hideCard(this.getIndex(this.state.currentId));
             this.changeCurrentValue(null);
           }, 1000);
+
         }
       }
     }
   }
 
   render() {
+
+    let gridStyle = {display: 'grid', gridTemplateColumns: 'repeat(4, 125px)',
+                    gridGap: '10px'}
 
     let cards = this.state.cards.map(c => {
       return <Card card={c}
@@ -117,11 +152,13 @@ class GameBoard extends Component {
                    change={this.change}  />
     });
 
-
     return (
       <div>
         <h1>Memory Game</h1>
-        {cards}
+        <div style={gridStyle}>
+          {cards}
+        </div>
+        <button onClick={this.resetGame}>New Game</button>
       </div>
     );
   }

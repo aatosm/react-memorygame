@@ -4,7 +4,7 @@ class Card extends Component {
 
   constructor(props){
     super(props);
-    this.test = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e){
@@ -14,21 +14,21 @@ class Card extends Component {
   render() {
 
     let cardStyleA = {
-      width: 80,
-      height: 80,
+      width: 100,
+      height: 100,
       border: '2px solid black',
+      borderRadius: '10px',
       background: 'yellow',
-      margin: '10px',
-      float: 'left'
+      margin: '10px'
     }
 
     let cardStyleB = {
-      width: 80,
-      height: 80,
+      width: 100,
+      height: 100,
       border: '2px solid black',
+      borderRadius: '10px',
       background: 'red',
-      margin: '10px',
-      float: 'left'
+      margin: '10px'
     }
 
     if(this.props.card.flipped){
@@ -38,7 +38,7 @@ class Card extends Component {
       </div>);
     } else {
       return(
-      <div style={cardStyleB} onClick={this.test.bind(this)}>
+      <div style={cardStyleB} onClick={this.handleClick}>
         {this.props.card.value}
       </div>);
     }
