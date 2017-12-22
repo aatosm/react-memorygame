@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card.js';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 class GameBoard extends Component {
 
@@ -166,8 +167,8 @@ class GameBoard extends Component {
 
   render() {
 
-    let gridStyle = {display: 'grid', gridTemplateColumns: 'repeat(4, 125px)',
-                    gridGap: '10px'}
+    let gridStyle = {display: 'grid', gridTemplateColumns: 'repeat(4, 120px)',
+                    gridGap: '12px'}
 
     let cards = this.state.cards.map(c => {
       return <Card card={c}
@@ -176,13 +177,32 @@ class GameBoard extends Component {
                    change={this.change}  />
     });
 
+    let style= {
+      background: '#BCE5FF'
+    }
+
     return (
       <div>
-        <h1>Memory Game</h1>
-        <div style={gridStyle}>
-          {cards}
-        </div>
-        <button onClick={this.resetGame}>New Game</button>
+        <Grid bsClass="fluid" style={style}>
+          <Row className="titleRow">
+            <Col md={4} mdOffset={4}>
+              <h1>Memory Game</h1>
+            </Col>
+          </Row>
+          <Row className="Board">
+            <Col md={6} mdOffset={3}>
+              <div style={gridStyle}>
+                {cards}
+              </div>
+            </Col>
+          </Row>
+          <Row className="Board">
+            <Col md={6} mdOffset={3}>
+              <Button style={{marginTop: '20px', marginBottom: '20px'}}
+              onClick={this.resetGame}>New Game</Button>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
