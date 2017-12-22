@@ -26,7 +26,7 @@ class Card extends Component {
       width: 100,
       height: 100,
       border: '2px solid black',
-      borderRadius: '10px',
+      borderRadius: '5px',
       background: 'red',
       margin: '10px'
     }
