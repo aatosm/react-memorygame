@@ -56,22 +56,22 @@ class GameBoard extends Component {
   // Hard coded, will fix later
   initCards(){
     let def = [
-      {id: 0, value: 1, image: 'red', flipped: false},
-      {id: 1, value: 1, image: 'red', flipped: false},
-      {id: 2, value: 2, image: 'red', flipped: false},
-      {id: 3, value: 2, image: 'red', flipped: false},
-      {id: 4, value: 3, image: 'red', flipped: false},
-      {id: 5, value: 3, image: 'red', flipped: false},
-      {id: 6, value: 4, image: 'red', flipped: false},
-      {id: 7, value: 4, image: 'red', flipped: false},
-      {id: 8, value: 5, image: 'red', flipped: false},
-      {id: 9, value: 5, image: 'red', flipped: false},
-      {id: 10, value: 6, image: 'red', flipped: false},
-      {id: 11, value: 6, image: 'red', flipped: false},
-      {id: 12, value: 7, image: 'red', flipped: false},
-      {id: 13, value: 7, image: 'red', flipped: false},
-      {id: 14, value: 8, image: 'red', flipped: false},
-      {id: 15, value: 8, image: 'red', flipped: false}
+      {id: 0, value: 1, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/JmWVa3J.png'},
+      {id: 1, value: 1, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/JmWVa3J.png'},
+      {id: 2, value: 2, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Rqop5t1.png'},
+      {id: 3, value: 2, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Rqop5t1.png'},
+      {id: 4, value: 3, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/9M32qHp.png'},
+      {id: 5, value: 3, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/9M32qHp.png'},
+      {id: 6, value: 4, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/lFVyAo5.png'},
+      {id: 7, value: 4, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/lFVyAo5.png'},
+      {id: 8, value: 5, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/fy6diCb.jpg'},
+      {id: 9, value: 5, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/fy6diCb.jpg'},
+      {id: 10, value: 6, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/7K92JEz.png'},
+      {id: 11, value: 6, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/7K92JEz.png'},
+      {id: 12, value: 7, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/z404DxK.jpg'},
+      {id: 13, value: 7, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/z404DxK.jpg'},
+      {id: 14, value: 8, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Yw5gTMK.jpg'},
+      {id: 15, value: 8, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Yw5gTMK.jpg'}
     ];
     return this.shuffle(def);
   }
