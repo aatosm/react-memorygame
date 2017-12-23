@@ -57,22 +57,22 @@ class GameBoard extends Component {
   // Hard coded, will fix later
   initCards(){
     let def = [
-      {id: 0, value: 1, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/JmWVa3J.png'},
-      {id: 1, value: 1, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/JmWVa3J.png'},
-      {id: 2, value: 2, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Rqop5t1.png'},
-      {id: 3, value: 2, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Rqop5t1.png'},
-      {id: 4, value: 3, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/9M32qHp.png'},
-      {id: 5, value: 3, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/9M32qHp.png'},
-      {id: 6, value: 4, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/lFVyAo5.png'},
-      {id: 7, value: 4, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/lFVyAo5.png'},
-      {id: 8, value: 5, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/fy6diCb.jpg'},
-      {id: 9, value: 5, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/fy6diCb.jpg'},
-      {id: 10, value: 6, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/7K92JEz.png'},
-      {id: 11, value: 6, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/7K92JEz.png'},
-      {id: 12, value: 7, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/z404DxK.jpg'},
-      {id: 13, value: 7, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/z404DxK.jpg'},
-      {id: 14, value: 8, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Yw5gTMK.jpg'},
-      {id: 15, value: 8, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Yw5gTMK.jpg'}
+      {id: 0, value: 1, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/JmWVa3J.png)'},
+      {id: 1, value: 1, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/JmWVa3J.png)'},
+      {id: 2, value: 2, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Rqop5t1.png)'},
+      {id: 3, value: 2, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Rqop5t1.png)'},
+      {id: 4, value: 3, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/9M32qHp.png)'},
+      {id: 5, value: 3, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/9M32qHp.png)'},
+      {id: 6, value: 4, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/lFVyAo5.png)'},
+      {id: 7, value: 4, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/lFVyAo5.png)'},
+      {id: 8, value: 5, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/fy6diCb.jpg)'},
+      {id: 9, value: 5, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/fy6diCb.jpg)'},
+      {id: 10, value: 6, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/7K92JEz.png)'},
+      {id: 11, value: 6, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/7K92JEz.png)'},
+      {id: 12, value: 7, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/z404DxK.jpg)'},
+      {id: 13, value: 7, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/z404DxK.jpg)'},
+      {id: 14, value: 8, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Yw5gTMK.jpg)'},
+      {id: 15, value: 8, image: 'red', flipped: false, backgroundImage: 'url(https://i.imgur.com/Yw5gTMK.jpg)'}
     ];
     return this.shuffle(def);
   }
@@ -167,8 +167,8 @@ class GameBoard extends Component {
 
   render() {
 
-    let gridStyle = {display: 'grid', gridTemplateColumns: 'repeat(4, 120px)',
-                    gridGap: '12px'}
+    let gridStyle = {display: 'grid', gridTemplateColumns: 'repeat(4, 125px)',
+                    gridGap: '12px', textAlign: 'center', margin: 'auto'}
 
     let cards = this.state.cards.map(c => {
       return <Card card={c}
@@ -178,7 +178,13 @@ class GameBoard extends Component {
     });
 
     let style= {
-      background: '#BCE5FF'
+
+      backgroundImage: 'url(https://i.imgur.com/78Hgdsu.png)'
+    }
+
+    let h = {
+      color: '#FFCBCA',
+      textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black'
     }
 
     return (
@@ -186,7 +192,7 @@ class GameBoard extends Component {
         <Grid bsClass="fluid" style={style}>
           <Row className="titleRow">
             <Col md={4} mdOffset={4}>
-              <h1>Memory Game</h1>
+              <h1 style={h}>Memory Game</h1>
             </Col>
           </Row>
           <Row className="Board">
@@ -196,10 +202,10 @@ class GameBoard extends Component {
               </div>
             </Col>
           </Row>
-          <Row className="Board">
-            <Col md={6} mdOffset={3}>
+          <Row>
+            <Col md={1} mdOffset={3}>
               <Button style={{marginTop: '20px', marginBottom: '20px'}}
-              onClick={this.resetGame}>New Game</Button>
+              onClick={this.resetGame} bsStyle="danger">New Game</Button>
             </Col>
           </Row>
         </Grid>
